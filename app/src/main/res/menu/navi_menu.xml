@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/bogi01"
+            android:title="3일보기"
+
+            />
+        <item
+            android:id="@+id/bogi02"
+            android:title="주별보기"
+            />
+        <item
+            android:id="@+id/bogi03"
+            android:title="월별보기"
+            />
+    </group>
+
+</menu>
