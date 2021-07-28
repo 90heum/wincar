@@ -12,13 +12,19 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import kr.co.heu_um.wincar.Fg.Fg01_Home;
+import kr.co.heu_um.wincar.Fg.Fg02_Calender;
+import kr.co.heu_um.wincar.Fg.Fg03_Write;
+import kr.co.heu_um.wincar.Fg.Fg04_Noti;
+import kr.co.heu_um.wincar.Fg.Fg05_Chat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -142,6 +148,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //플롯팅액션바
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "플롯팅 클릭 반응성공", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
 
 
 
@@ -166,6 +182,8 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
 
     }
+
+
 
 
 
