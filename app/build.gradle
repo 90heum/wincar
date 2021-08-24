@@ -36,4 +36,16 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+    //Retrofit 라이브러리 추가 //gson은 항상따라다녀야됨
+    //1레트로핏으로 스레드.런등등 다알아서해줌 2.gson라이브러리로 해석해주는데 그것마저 converter-gson인 다해줌!
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+
+    //레트로핏의 응답결과를 String으로 받고 싶을때... 필요한 Converter
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+
 }

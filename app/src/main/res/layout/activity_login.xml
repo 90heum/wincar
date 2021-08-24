@@ -13,7 +13,7 @@
         android:background="@drawable/logo"
         />
     <EditText
-        android:id="@+id/ivEt01"
+        android:id="@+id/etLogin"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
@@ -21,18 +21,19 @@
         android:layout_below="@+id/ivLogo"
         android:layout_centerHorizontal="true"/>
     <EditText
-        android:id="@+id/ivET02"
+        android:id="@+id/etPassword"
         android:layout_width="300dp"
         android:layout_height="60dp"
+        android:inputType="textPassword"
         android:hint="비밀번호"
-        android:layout_below="@+id/ivEt01"
+        android:layout_below="@+id/etLogin"
         android:layout_centerHorizontal="true"/>
 
     <CheckBox
         android:id="@+id/ck01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ivET02"
+        android:layout_below="@+id/etPassword"
         android:layout_marginLeft="220dp"
         android:layout_marginTop="-2dp"
         android:hint="아이디 기억하기" />
@@ -49,7 +50,9 @@
         android:backgroundTint="#1FABAA"
         android:layout_marginTop="18dp"
         android:layout_below="@+id/ck01"/>
+
     <Button
+        android:onClick="clickJoin"
         android:id="@+id/btJoin"
         android:layout_width="280dp"
         android:layout_height="60dp"

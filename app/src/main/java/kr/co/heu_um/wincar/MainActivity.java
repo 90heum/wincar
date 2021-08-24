@@ -11,10 +11,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -25,6 +27,7 @@ import kr.co.heu_um.wincar.Fg.Fg02_Calender;
 import kr.co.heu_um.wincar.Fg.Fg03_Write;
 import kr.co.heu_um.wincar.Fg.Fg04_Noti;
 import kr.co.heu_um.wincar.Fg.Fg05_Chat;
+import kr.co.heu_um.wincar.Login.userVo;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bnv;
     Fragment[] fragments= new Fragment[5];
     FragmentManager fragmentManager;
+
+    TextView tv_customer;
+    TextView tv_name;
+    TextView tv_Id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });*/
+
+
+
 
 
         //Fragment
@@ -158,9 +168,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
     }
 
     @Override
@@ -168,6 +175,24 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case android.R.id.home:{ // 왼쪽 상단 버튼 눌렀을 때
                 mDrawerLayout.openDrawer(GravityCompat.START);
+
+
+                //네비게이션뷰 셋팅
+                //인텐트로 로그인정보 받아와 셋팅
+                Intent secondIntent = getIntent();
+                String userName=secondIntent.getStringExtra("userNm");
+                String userCompy=secondIntent.getStringExtra("cmpnyNm");
+                String userId=secondIntent.getStringExtra("userId");
+
+                tv_customer=findViewById(R.id.tv_customer);
+                tv_customer.setText(""+userName);
+
+                tv_name=findViewById(R.id.tv_name);
+                tv_name.setText(""+userCompy);
+
+                tv_Id=findViewById(R.id.tv_Id);
+                tv_Id.setText(""+userId);
+
                 return true;
             }
         }
@@ -182,9 +207,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
 
     }
-
-
-
 
 
 }

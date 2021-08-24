@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import kr.co.heu_um.wincar.CalendarList;
 import kr.co.heu_um.wincar.MyCalAdapter;
 import kr.co.heu_um.wincar.R;
 
@@ -23,9 +24,10 @@ import static android.content.ContentValues.TAG;
 
 public class Fg02_Calender extends Fragment {
     private Bundle savedInstanceState;
+
     ArrayList<String> dayList;
     GridView gridView;
-
+    ArrayList<CalendarList> calendarList;
 
     @Nullable
     @Override
@@ -41,7 +43,6 @@ public class Fg02_Calender extends Fragment {
         gridView= view.findViewById(R.id.gridview);
 
         dayList= new ArrayList<String>();
-
         Calendar cal = Calendar.getInstance();
 
         int y = cal.get(Calendar.YEAR);
@@ -70,8 +71,10 @@ public class Fg02_Calender extends Fragment {
             dayList.add(i+"");
         }
 
+
+
         //어댑터생성
-        MyCalAdapter adapter= new MyCalAdapter(getContext().getApplicationContext(), R.layout.item_calendar_gridview,dayList);
+        MyCalAdapter adapter= new MyCalAdapter(getContext().getApplicationContext(), R.layout.item_calendar_gridview,calendarList);
         adapter.notifyDataSetChanged();
 
         //어댑터 설정
@@ -89,7 +92,7 @@ public class Fg02_Calender extends Fragment {
             //달력 앞으로가기
             private void nextClick() {
 
-                //12월달에 +1이됐을때 다음해로 넘어가기+ 1월로 초기화
+                //12월달에 +1이됐을때 다음해로 넘어가기 1월로 초기화
                 if(cal.get(Calendar.DAY_OF_MONTH)==Calendar.DECEMBER){
                     dayList.clear();
                     cal.set(Calendar.YEAR, cal.get(Calendar.YEAR)+1);
@@ -119,8 +122,11 @@ public class Fg02_Calender extends Fragment {
 
                 month.setText((m+1)+"");
                 year.setText(y+"");
+
+
+
                 //어댑터생성
-                MyCalAdapter adapter= new MyCalAdapter(getContext().getApplicationContext(), R.layout.item_calendar_gridview,dayList);
+                MyCalAdapter adapter= new MyCalAdapter(getContext().getApplicationContext(), R.layout.item_calendar_gridview,calendarList);
                 adapter.notifyDataSetChanged();
                 //어댑터 설정
                 GridView gridView = (GridView)view.findViewById(R.id.gridview);
@@ -174,7 +180,7 @@ public class Fg02_Calender extends Fragment {
                 month.setText((m+1)+"");
                 year.setText(y+"");
                 //어댑터생성
-                MyCalAdapter adapter= new MyCalAdapter(getContext().getApplicationContext(),R.layout.item_calendar_gridview,dayList);
+                MyCalAdapter adapter= new MyCalAdapter(getContext().getApplicationContext(),R.layout.item_calendar_gridview,calendarList);
                 adapter.notifyDataSetChanged();
                 //어댑터 설정
                 GridView gridView = (GridView)view.findViewById(R.id.gridview);
